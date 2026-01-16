@@ -18,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>21</java.version>
+		<commons-lang3.version>3.18.0</commons-lang3.version>
 
 		<main.class>uk.gov.companieshouse.insolvency.data.InsolvencyDataApiApplication</main.class>
 
@@ -89,7 +90,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		</dependencies>
+			<!-- CVE-2025-48924 fix: override commons-lang3 to 3.18.0+ -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
