@@ -18,7 +18,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>21</java.version>
-		<commons-lang3.version>3.18.0</commons-lang3.version>
 
 		<main.class>uk.gov.companieshouse.insolvency.data.InsolvencyDataApiApplication</main.class>
 
@@ -28,10 +27,10 @@
 		<opentelemetry.version>2.14.0</opentelemetry.version>
 
 		<!-- Internal -->
-		<structured-logging.version>3.0.32</structured-logging.version>
+		<structured-logging.version>3.0.47</structured-logging.version>
 		<private-api-sdk-java.version>4.0.312</private-api-sdk-java.version>
-		<api-sdk-manager-java-library.version>3.0.7</api-sdk-manager-java-library.version>
-		<api-helper-java-library.version>3.0.1</api-helper-java-library.version>
+		<api-sdk-manager-java-library.version>3.0.15</api-sdk-manager-java-library.version>
+		<api-helper-java-library.version>3.0.3</api-helper-java-library.version>
 		<api-security-java.version>2.0.8</api-security-java.version>
 
 		<!-- tests -->
@@ -60,7 +59,7 @@
 		<sonar.login></sonar.login>
 		<sonar.password></sonar.password>
 
-		<spring.boot.version>3.5.3</spring.boot.version>
+		<spring.boot.version>3.5.9</spring.boot.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -90,13 +89,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- CVE-2025-48924 fix: override commons-lang3 to 3.18.0+ -->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>${commons-lang3.version}</version>
-			</dependency>
-			</dependencies>
+		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
