@@ -27,11 +27,11 @@
 		<opentelemetry.version>2.26.1</opentelemetry.version>
 
 		<!-- Internal -->
-		<structured-logging.version>3.0.47</structured-logging.version>
-		<private-api-sdk-java.version>4.0.312</private-api-sdk-java.version>
-		<api-sdk-manager-java-library.version>3.0.15</api-sdk-manager-java-library.version>
-		<api-helper-java-library.version>3.0.3</api-helper-java-library.version>
-		<api-security-java.version>2.0.8</api-security-java.version>
+		<structured-logging.version>3.0.53</structured-logging.version>
+		<private-api-sdk-java.version>4.0.493</private-api-sdk-java.version>
+		<api-sdk-manager-java-library.version>3.0.19</api-sdk-manager-java-library.version>
+		<api-helper-java-library.version>3.0.4</api-helper-java-library.version>
+		<api-security-java.version>2.0.26</api-security-java.version>
 
 		<!-- tests -->
 		<assertj-core.version>3.27.3</assertj-core.version>
