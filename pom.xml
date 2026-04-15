@@ -109,6 +109,21 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- OVERRIDE-->
+		<!-- override tomcat-embed-core to fix CVE-2026-34500(6.5), CVE-2026-34486(7.5), CVE-2026-34487(7.5), CVE-2026-34483(7.5)- transitive dependency from spring-boot-starter-test -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>11.0.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-websocket</artifactId>
+			<version>11.0.21</version>
+		</dependency>
+		<!-- OVERRIDE-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
