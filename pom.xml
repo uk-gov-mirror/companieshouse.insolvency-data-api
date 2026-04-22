@@ -24,14 +24,14 @@
 		<maven-build-helper-plugin.version>3.6.1</maven-build-helper-plugin.version>
 		<jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
 		<springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
-		<opentelemetry.version>2.14.0</opentelemetry.version>
+		<opentelemetry.version>2.26.1</opentelemetry.version>
 
 		<!-- Internal -->
-		<structured-logging.version>3.0.47</structured-logging.version>
-		<private-api-sdk-java.version>4.0.312</private-api-sdk-java.version>
-		<api-sdk-manager-java-library.version>3.0.15</api-sdk-manager-java-library.version>
-		<api-helper-java-library.version>3.0.3</api-helper-java-library.version>
-		<api-security-java.version>2.0.8</api-security-java.version>
+		<structured-logging.version>3.0.53</structured-logging.version>
+		<private-api-sdk-java.version>4.0.493</private-api-sdk-java.version>
+		<api-sdk-manager-java-library.version>3.0.19</api-sdk-manager-java-library.version>
+		<api-helper-java-library.version>3.0.4</api-helper-java-library.version>
+		<api-security-java.version>2.0.26</api-security-java.version>
 
 		<!-- tests -->
 		<assertj-core.version>3.27.3</assertj-core.version>
@@ -59,7 +59,7 @@
 		<sonar.login></sonar.login>
 		<sonar.password></sonar.password>
 
-		<spring.boot.version>3.5.9</spring.boot.version>
+ 		<spring.boot.version>4.0.5</spring.boot.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -109,6 +109,21 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- OVERRIDE-->
+		<!-- override tomcat-embed-core to fix CVE-2026-34500(6.5), CVE-2026-34486(7.5), CVE-2026-34487(7.5), CVE-2026-34483(7.5)- transitive dependency from spring-boot-starter-test -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>11.0.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-websocket</artifactId>
+			<version>11.0.21</version>
+		</dependency>
+		<!-- OVERRIDE-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -120,6 +135,7 @@
 		<dependency>
 			<groupId>io.opentelemetry.instrumentation</groupId>
 			<artifactId>opentelemetry-spring-boot-starter</artifactId>
+			<version>${opentelemetry.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -135,6 +151,27 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-resttestclient</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-restclient</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test-autoconfigure</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>uk.gov.companieshouse</groupId>
 			<artifactId>structured-logging</artifactId>
@@ -168,12 +205,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>${assertj-core.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testcontainers</groupId>
