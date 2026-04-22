@@ -59,7 +59,7 @@
 		<sonar.login></sonar.login>
 		<sonar.password></sonar.password>
 
- 		<spring.boot.version>4.1.0-M4</spring.boot.version>
+ 		<spring.boot.version>4.0.5</spring.boot.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
